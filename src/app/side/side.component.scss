@@ -1,0 +1,40 @@
+@import "../../scss/variables";
+
+aside{
+  position: fixed;
+  background: #fff;
+  width: 215px;
+  height: calc(100vh - 110px);
+  top:110px;
+  right:-300px;
+  transition: all 0.75s ease-in-out;
+  z-index: 50;
+  &.active{
+    right: 0;
+  }
+  .nav{
+    padding: 0;
+  }
+  .nav-item{
+    margin-top: 15px;
+    font-size: 14px;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    span{
+      margin-right:15%;
+    }
+    .fa{
+      font-size: 22px;
+    }
+    &:hover{
+      color: #fff;
+      background: $blueNav;
+    }
+    &.active{
+      border-left: solid 2px $blueNav;
+      background: #ededed;
+      color: $blueNav;
+    }
+  }
+}

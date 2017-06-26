@@ -1,0 +1,115 @@
+@import "../../scss/variables";
+.chat-con{
+  position: relative;
+  width: 50vw;
+  margin: 0px auto;
+  background: rgba(225,225,225,0.4);
+  height: calc(100vh - 110px);
+  padding-bottom: 160px;
+  display: flex;
+}
+
+.list-loop{
+  .ballon{
+    display: inline-block;
+    background: #fff;
+    border-radius: 15px;
+    min-height: 30px;
+    padding: 5px 10px;
+    margin: 5px ;
+  }
+  .text-user{
+    display: flex;
+    justify-content: flex-end;
+    .ballon{
+      background: $blueNav;
+      color: #fff;
+    }
+  }
+}
+.server-res{
+  width: 100%;
+  overflow-y: auto;
+}
+.textInput{
+  position: fixed;
+  height: 45px;
+  width: 40vw;
+  background: #fff;
+  border-radius: 33px;
+  bottom: 47px;
+  left:calc( 50vw - 20vw);
+  input{
+    border: none;
+    outline: none;
+    height: 45px;
+    position: relative;
+    width: 85%;
+    margin-right: 15px;
+    border-radius: 15px;
+  }
+  .sendIcon{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    background:$iconGray ;
+    border-radius: 50%;
+    text-align: center;
+    color: #fff;
+    left: 15px;
+    top: 7px;
+    padding-top: 3px;
+    cursor: pointer;
+    .fa{
+      transform: rotate(-117deg);
+    }
+  }
+}
+.chat-btns{
+  opacity: 0;
+  display: flex;
+  position: absolute;
+  bottom: 105px;
+  width: calc(100% - 20px);
+  justify-content: center;
+  animation-name: fadeIn;
+  animation-duration: .25s;
+  animation-direction: normal;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+  .btn{
+    margin: 0 5px;
+  }
+  &.hide{
+    display: none;
+    //animation-name: fadeOut;
+    //animation-timing-function: ease-out;
+    //animation-delay: .5s;
+  }
+}
+
+
+
+
+@keyframes fadeIn {
+  from{
+    opacity: 0;
+   transform: translateY(25px) ;
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0px) ;
+  }
+}
+
+@keyframes fadeOut {
+  from{
+    opacity: 1;
+    transform: translateY(0px) ;
+  }
+  to{
+    opacity: 0;
+    transform: translateY(25px) ;
+    display: none;
+  }
+}

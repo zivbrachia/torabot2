@@ -1,0 +1,48 @@
+<section class="chat-con">
+<!--<pre dir="rtl">-->
+  <!--{{chatList | json}}-->
+<!--</pre>-->
+  <div class="server-res">
+    <div class="list-loop" *ngFor="let res of chatList; index as i; ">
+        <!--type: {{res.type}}-->
+      <div class="text-user" *ngIf="res.type == 10 && res?.text">
+        <div class="ballon">
+          {{res.text}}
+        </div>
+      </div>
+
+      <div class="ballon text" *ngIf="res.type == 0 && res?.speech">{{res?.speech}}</div>
+
+      <div class="ballon gallery" *ngIf="res.type == 3 ">
+        <figure>
+          <img [src]="res.imageUrl" width="40px" height="40px">
+        </figure>
+      </div>
+
+      <div class="ballon quick" *ngIf="res.type == 2 ">
+        <div>
+          <p>
+            {{res?.title}}
+          </p>
+
+          <div class="chat-btns pos-{{i}}"  role="group"  aria-label="Basic example">
+            <button type="button"
+                    class="btn btn-primary"
+                    *ngFor="let quick of res.replies"
+                    (click)="sendText(quick);question.value = '';hideBtns(i);">{{quick}}</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="textInput">
+    <input #question type="text" placeholder="הקלד כאן" (keyup.enter)="sendText(question.value);question.value = ''">
+    <span class="sendIcon" (click)="sendText(question.value); question.value = ''">
+      <i class="fa fa-paper-plane" aria-hidden="true"></i>
+    </span>
+
+  </div>
+</section>

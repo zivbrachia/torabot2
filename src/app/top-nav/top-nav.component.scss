@@ -1,0 +1,9 @@
+@import "../../scss/variables";
+
+.main-nav{
+  height: 110px;
+  background-color: $blueNav;
+  .nav-item{
+    color: #fff;
+  }
+}

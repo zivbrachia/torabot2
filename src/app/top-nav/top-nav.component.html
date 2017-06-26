@@ -1,0 +1,13 @@
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded main-nav">
+  <app-burger (isActiveEmit)="sideOpen($event)"></app-burger>
+  <ul class="navbar-nav">
+    <li class="nav-item">
+        Pricing
+      </li>
+      <li class="nav-item">
+        Disabled
+      </li>
+    </ul>
+</nav>
+
+<app-side [isActive]="isSideOpen"></app-side>

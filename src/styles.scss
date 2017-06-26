@@ -1,0 +1,20 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'scss/variables';
+@import '../node_modules/font-awesome/scss/font-awesome';
+@import '../node_modules/bootstrap/scss/bootstrap';
+
+
+@import url(https://fonts.googleapis.com/earlyaccess/opensanshebrew.css);
+@import url(https://fonts.googleapis.com/earlyaccess/opensanshebrewcondensed.css);
+
+body{
+  direction: rtl;
+//  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans Hebrew', serif;
+
+}
+
+
+.btn-group{
+  direction: ltr;
+}
