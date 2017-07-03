@@ -8,7 +8,8 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class ChatManagerService {
 
-  serverUrl = 'http://localhost:5000/';
+  serverUrl = 'https://59c16500.ngrok.io/' ;
+  // serverUrl = 'http://localhost:5000/';
 
   constructor(private http: Http) { }
 

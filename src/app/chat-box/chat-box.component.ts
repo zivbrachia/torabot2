@@ -8,6 +8,7 @@ import {ChatManagerService} from '../chat-manager.service';
 })
 export class ChatBoxComponent {
     chatList = [];
+    lastBg:string;
 
     @Output() bg = new EventEmitter();
     constructor(private chatM: ChatManagerService) {
@@ -31,9 +32,12 @@ export class ChatBoxComponent {
                 //     this.chatList.push(item)
                 // });
                 //}
-                //console.log(this.chatList)
+               // console.log(this.chatList)
                 if ( data.bg ) {
-                    this.bg.emit(data.bg);
+                    if(this.lastBg !== data.bg){
+                        this.bg.emit(data.bg);
+                    }
+                    this.lastBg = data.bg;
                 }
             },
             (e) => console.log(e)
@@ -47,7 +51,7 @@ export class ChatBoxComponent {
             let main = <HTMLElement> document.querySelector('.server-res');
 
             main.scrollTop = last.offsetTop;
-        }, 1000);
+        }, 750);
 
     }
 

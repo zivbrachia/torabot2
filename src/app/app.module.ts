@@ -12,6 +12,7 @@ import { SideComponent } from './side/side.component';
 import { ChatBoxComponent } from './chat-box/chat-box.component';
 import {ChatManagerService} from "./chat-manager.service";
 import { ChatPageComponent } from './chat-page/chat-page.component';
+import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ChatPageComponent } from './chat-page/chat-page.component';
     BurgerComponent,
     SideComponent,
     ChatBoxComponent,
-    ChatPageComponent
+    ChatPageComponent,
+    ProgressBarComponent
   ],
   imports: [
     BrowserModule,
