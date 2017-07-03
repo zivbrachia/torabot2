@@ -1,7 +1,7 @@
 <nav class="navbar navbar-toggleable-md navbar-light bg-faded main-nav">
 
   <app-burger (isActiveEmit)="sideOpen($event)"></app-burger>
-  <app-progress-bar [present]="1" [color]="'color1'"></app-progress-bar>
+  <app-progress-bar [present]="presentSet" [color]="''+colorSetting+''"></app-progress-bar>
 
   <div class="user">
     <span>שם משתמש</span>

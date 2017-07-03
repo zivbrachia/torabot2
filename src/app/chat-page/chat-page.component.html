@@ -1,4 +1,4 @@
-<app-top-nav></app-top-nav>
+<app-top-nav [colorSetting]="color" [presentSet]="progress"></app-top-nav>
 <main class="container-fluid" [ngStyle]="{backgroundImage: 'url(' + backImg + ')'}">
-  <app-chat-box (bg)="setBg($event)"></app-chat-box>
+  <app-chat-box (bg)="setBg($event)" (setting)="setNewSetting($event)" ></app-chat-box>
 </main>

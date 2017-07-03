@@ -11,6 +11,7 @@ export class ChatBoxComponent {
     lastBg:string;
 
     @Output() bg = new EventEmitter();
+    @Output() setting = new EventEmitter();
     constructor(private chatM: ChatManagerService) {
     }
 
@@ -18,26 +19,23 @@ export class ChatBoxComponent {
         this.chatList.push({type: 10 , text: text});
         this.chatM.sendText(text).subscribe(
             (data) => {
-                // if (data.msg) {
-                // let a =[];
-                // a = a.concat([], data.msg);
-                // this.chatList.push(a);
                 data.msg.map(item => {
                     this.chatList.push(item);
                 });
                 let elem = document.querySelector('.chat-btns:not(.hide)');
                 if ( elem && elem.className ) { elem.className += ' hide'; }
                 this.scrollToPos();
-                // data.forEach(item => {
-                //     this.chatList.push(item)
-                // });
-                //}
-               // console.log(this.chatList)
+
                 if ( data.bg ) {
                     if(this.lastBg !== data.bg){
                         this.bg.emit(data.bg);
                     }
                     this.lastBg = data.bg;
+                }
+
+                //if setting
+                if(data.status){
+                    this.setting.emit({color:data.status.color || null ,process:data.status.percent || null})
                 }
             },
             (e) => console.log(e)
