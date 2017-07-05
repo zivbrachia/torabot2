@@ -12,7 +12,7 @@
 
 .icon-bot{
   display: inline-block;
-  background:url("../../assets/sarah_face_icon.png") no-repeat;
+  background:url('/assets/sarah_face_icon.png') no-repeat;
   width: 30px;
   height: 30px;
   background-size: cover;
@@ -21,12 +21,26 @@
 }
 .icon-user{
   display: inline-block;
-  background: url("https://s.financesonline.com/media/themes/apps/images/img_placeholder_avatar.jpg") no-repeat;
   width: 30px;
   height: 30px;
   background-size: cover;
   box-shadow: 0px 2px 2px #605e5e;
   border-radius: 50%;
+  &.user_yael{
+    background-image: url('/assets/user_yael.png');
+  }
+  &.user_owl{
+    background-image: url('/assets/user_owl.png');
+  }
+  &.user_bunny{
+    background-image: url('/assets/user_bunny.png');
+  }
+  &.user_lizzard{
+    background-image: url('/assets/user_lizzard.png');
+  }
+  &.user_fish{
+    background-image: url('/assets/user_fish.png');
+  }
 }
 
 .list-loop{
@@ -39,12 +53,12 @@
     min-height: 30px;
     padding: 5px 10px;
     margin: 5px ;
-    border-radius: 60px 3px 3px 33px;
+    border-radius: 33px 3px 3px 33px;
     &:first-child{
-      border-radius: 60px 33px 3px 33px;
+      border-radius: 33px 33px 3px 33px;
     }
     &:last-child{
-      border-radius: 60px 3px 33px 33px;
+      border-radius: 33px 3px 33px 33px;
     }
     &.gallery{
       width: inherit;

@@ -8,15 +8,16 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class ChatManagerService {
 
-  serverUrl = 'https://59c16500.ngrok.io/' ;
+  serverUrl = 'https://43401511.ngrok.io/' ;
   // serverUrl = 'http://localhost:5000/';
 
   constructor(private http: Http) { }
 
-  sendText(text): Observable<any> {
+  sendText(dataObj): Observable<any> {
     const bodyMsg = {
-      msg: text,
-      user: 'yanai'
+      msg:dataObj.msg,
+      user:dataObj.user,
+      id:dataObj.id
     }
     return this.http.post(this.serverUrl + 'webhook', bodyMsg)
         .map((res: Response) => res.json()) // ...and calling .json() on the response to return data

@@ -18,3 +18,9 @@ body{
 .btn-group{
   direction: ltr;
 }
+
+.login {
+  .progressbar{
+    display: none !important;
+  }
+}

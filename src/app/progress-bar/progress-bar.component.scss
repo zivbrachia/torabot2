@@ -216,3 +216,14 @@ body{background:#333;}
   from {background-position: 0 0;}
   to {background-position: 0 -64px;}
 }
+
+
+.status-text {
+  position: absolute;
+  top: -30px;
+  color: #fff;
+  display: flex;
+  width: 100%;
+  right: 0;
+  justify-content: space-between;
+}

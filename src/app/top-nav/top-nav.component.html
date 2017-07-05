@@ -1,11 +1,10 @@
 <nav class="navbar navbar-toggleable-md navbar-light bg-faded main-nav">
 
   <app-burger (isActiveEmit)="sideOpen($event)"></app-burger>
-  <app-progress-bar [present]="presentSet" [color]="''+colorSetting+''"></app-progress-bar>
-
+  <app-progress-bar [bookStatus]="bookSetting" [present]="presentSet" [color]="''+colorSetting+''"></app-progress-bar>
   <div class="user">
-    <span>שם משתמש</span>
-    <img src="https://s.financesonline.com/media/themes/apps/images/img_placeholder_avatar.jpg">
+    <figure class="user-image {{user?.pic}}" ></figure>
+    <span>{{user?.name}}</span>
   </div>
 
 </nav>

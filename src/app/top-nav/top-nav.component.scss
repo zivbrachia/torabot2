@@ -10,12 +10,35 @@
   }
 
   .user{
-    img{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    color: #fff;
+    figure{
+      margin: 0 15px;
       width: 40px;
       height: 40px;
       border-radius: 50%;
-      background: #fff;
+      background-size: contain;
+      background-repeat: no-repeat;
+      display: inline-block;
+    &.user_yael{
+      background-image: url('/assets/user_yael.png');
     }
+    &.user_owl{
+      background-image: url('/assets/user_owl.png');
+    }
+    &.user_bunny{
+      background-image: url('/assets/user_bunny.png');
+    }
+    &.user_lizzard{
+      background-image: url('/assets/user_lizzard.png');
+    }
+    &.user_fish{
+      background-image: url('/assets/user_fish.png');
+    }
+  }
+
   }
 
 }

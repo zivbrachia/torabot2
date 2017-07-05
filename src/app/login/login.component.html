@@ -1,5 +1,29 @@
-<p>
-  login works!
-</p>
+<section class="login">
+<app-top-nav></app-top-nav>
 
-<button routerLink="/chat">chat</button>
+  <div class="main">
+    <header>
+      <figure class="logo"></figure>
+      <span>היי , אני טוני, ברוכים הבאים</span>
+    </header>
+    <div class="login-form">
+      <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
+        <label for="name">מה הכינוי שתרצו ?</label>
+        <input type="text" class="form-control" id="name"
+               required
+               [(ngModel)]="user.name" name="name" placeholder="כתבו כינוי">
+        <div>
+          <label>נא לבחור תמונה</label>
+          <div class='user-image'>
+            <div  *ngFor="let img of pic ; index as i">
+              <input name="pic" id="pic_{{i}}" type="radio" [(ngModel)]="user.pic" [value]="img" required>
+              <label for="pic_{{i}}" class="pic-label {{img}}"></label>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!loginForm.form.valid"> נתחיל לדבר</button>
+      </form>
+    </div>
+  </div>
+
+</section>

@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HttpModule} from "@angular/http";
+import {FormsModule} from "@angular/forms";
 
 
 import { AppComponent } from './app.component';
@@ -13,6 +14,7 @@ import { ChatBoxComponent } from './chat-box/chat-box.component';
 import {ChatManagerService} from "./chat-manager.service";
 import { ChatPageComponent } from './chat-page/chat-page.component';
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
+import {UserService} from "./user.service";
 
 @NgModule({
   declarations: [
@@ -28,9 +30,10 @@ import { ProgressBarComponent } from './progress-bar/progress-bar.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpModule
+    HttpModule,
+    FormsModule
   ],
-  providers: [ChatManagerService],
+  providers: [ChatManagerService ,UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

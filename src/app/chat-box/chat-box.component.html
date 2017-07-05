@@ -9,7 +9,7 @@
         <div class="ballon user">
           {{res.text}}
         </div>
-        <span class="icon-user"></span>
+        <span class="icon-user {{user?.pic}}"></span>
       </div>
 
 
@@ -24,8 +24,8 @@
           <figure>
             <img [src]="gal.imageUrl">
             <fieldset>
-              <h2>{{gal.title}}</h2>
-              <h4>{{gal?.subtitle}}</h4>
+              <b>{{gal.title}}</b>
+              <h6>{{gal?.subtitle}}</h6>
             </fieldset>
           </figure>
           <div class="gallery-btn" aria-label="Basic example">

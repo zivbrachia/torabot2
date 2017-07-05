@@ -1,4 +1,9 @@
 <div class="progressbar">
-  <div class="bar {{color}}" [ngStyle]="{'width': 'calc( ' + present + ' * 35vw)'}"><span></span></div>
-  <!--<div class="label"><span>{{present}}</span></div>-->
+    <div class="status-text">
+        <span> {{bookStatus?.to}} </span>
+        <span>  {{bookStatus?.book }}  {{ bookStatus?.perek}}  </span>
+        <span class="from">{{bookStatus?.from}} </span>
+    </div>
+    <div class="bar {{color}}" [ngStyle]="{'width': 'calc( ' + present + ' * 35vw)'}"><span></span></div>
+    <!--<div class="label"><span>{{present}}</span></div>-->
 </div>
