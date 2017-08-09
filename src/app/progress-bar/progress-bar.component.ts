@@ -8,7 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
 export class ProgressBarComponent implements OnInit {
   @Input() present:number = 0;
   @Input() color:string;
-  @Input() bookStatus:object;
+  @Input() bookStatus:any;
 
   constructor() { }
 

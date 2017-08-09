@@ -25,6 +25,7 @@
     "core-js": "^2.4.1",
     "fingerprintjs2": "^1.5.1",
     "font-awesome": "^4.7.0",
+    "ngx-bootstrap": "^1.8.1",
     "rxjs": "^5.1.0",
     "zone.js": "^0.8.4"
   },

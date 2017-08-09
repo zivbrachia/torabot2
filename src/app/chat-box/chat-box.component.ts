@@ -11,7 +11,7 @@ import {UserService} from "../user.service";
 export class ChatBoxComponent implements OnInit {
     chatList = [];
     lastBg: string;
-    user: object = {};
+    user: any;
 
     @Output() bg = new EventEmitter();
     @Output() setting = new EventEmitter();

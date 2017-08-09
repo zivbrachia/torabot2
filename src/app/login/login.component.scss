@@ -9,6 +9,9 @@
   .main{
     width: 50vw;
     margin: 15px auto;
+    @media screen and (max-width: $break-small){
+     width: 100vw;
+    }
     header{
       text-align: center;
       margin-bottom: 20px;
@@ -41,7 +44,7 @@
         text-align: center;
       }
       input{
-        width: 300px;
+        width: 60%;
         color: $blueNav;
         margin: 10px auto;
       }

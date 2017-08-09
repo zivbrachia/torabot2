@@ -15,6 +15,7 @@ import {ChatManagerService} from "./chat-manager.service";
 import { ChatPageComponent } from './chat-page/chat-page.component';
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 import {UserService} from "./user.service";
+import {CarouselModule} from "ngx-bootstrap";
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {UserService} from "./user.service";
     BrowserModule,
     AppRoutingModule,
     HttpModule,
-    FormsModule
+    FormsModule,
+    CarouselModule.forRoot()
   ],
   providers: [ChatManagerService ,UserService],
   bootstrap: [AppComponent]

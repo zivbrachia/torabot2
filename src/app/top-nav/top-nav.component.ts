@@ -8,7 +8,7 @@ import {UserService} from "../user.service";
 })
 export class TopNavComponent implements OnInit{
 
-  user:object;
+  user:any;
 
   @Input() colorSetting:string ='color1';
   @Input() presentSet:number = 0;

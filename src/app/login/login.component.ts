@@ -12,7 +12,7 @@ declare var Fingerprint2:any;
 })
 export class LoginComponent implements OnInit {
 
-  user: Object = {};
+  user: any;
   pic = ['user_fish','user_yael','user_owl','user_bunny','user_lizzard']
 
   constructor(private userService:UserService , private router:Router) { }

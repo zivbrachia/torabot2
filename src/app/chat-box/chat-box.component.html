@@ -1,4 +1,5 @@
 <section class="chat-con">
+
 <!--<pre dir="rtl">-->
   <!--{{chatList | json}}-->
 <!--</pre>-->
@@ -15,49 +16,72 @@
 
       <span *ngIf="res?.showIcon" class="icon-bot"></span>
 
-      <div class="ballon text" *ngIf="res.type == 0 && res?.speech">
+      <div class="ballon text"
+           [ngClass]="{'last-text':res?.last_msg}"
+           [class.firstText]="res?.showIcon" *ngIf="res.type == 0 && res?.speech">
         {{res?.speech}}
       </div>
 
       <div class="gallery-img" *ngIf="res.type == 1 ">
-        <section *ngFor="let gal of res.messages; index as m ;">
-          <figure>
+        <!--<section *ngFor="let gal of res.messages; index as m ;">-->
+          <!--<figure>-->
+            <!--<img [src]="gal.imageUrl">-->
+            <!--<fieldset>-->
+              <!--<b>{{gal.title}}</b>-->
+              <!--<h6>{{gal?.subtitle}}</h6>-->
+            <!--</fieldset>-->
+          <!--</figure>-->
+          <!--<div class="gallery-btn" aria-label="Basic example">-->
+            <!--<button type="button"-->
+                    <!--class="btn btn-primary"-->
+                    <!--*ngFor="let btn of gal.buttons"-->
+                    <!--(click)="sendText(btn.postback);question.value = '';">{{btn.text}}</button>-->
+          <!--</div>-->
+        <!--</section>-->
+        <carousel [noWrap]="true">
+          <slide *ngFor="let gal of res.messages; index as m ;">
             <img [src]="gal.imageUrl">
-            <fieldset>
+            <div class="carousel-caption">
               <b>{{gal.title}}</b>
               <h6>{{gal?.subtitle}}</h6>
-            </fieldset>
-          </figure>
-          <div class="gallery-btn" aria-label="Basic example">
+            </div>
+            <div class="gallery-btn" aria-label="Basic example">
             <button type="button"
-                    class="btn btn-primary"
-                    *ngFor="let btn of gal.buttons"
-                    (click)="sendText(btn.postback);question.value = '';">{{btn.text}}</button>
-          </div>
-        </section>
+            class="btn btn-primary"
+            *ngFor="let btn of gal.buttons"
+            (click)="sendText(btn.postback);question.value = '';">{{btn.text}}
+            </button>
+            </div>
+          </slide>
+        </carousel>
+
       </div>
 
 
 
-      <div class="ballon gallery" *ngIf="res.type == 3 ">
+      <div class="ballon gallery"
+           [class.firstImg]="res?.showIcon"
+           *ngIf="res.type == 3 ">
         <figure>
           <img [src]="res.imageUrl" width="40px" height="40px">
         </figure>
       </div>
 
-      <div class="ballon quick" *ngIf="res.type == 2 ">
+      <div class="ballon quick"
+           [class.firstText]="res?.showIcon"
+           [ngClass]="{'last-text':res?.last_msg}" *ngIf="res.type == 2 ">
         <div>
           <p>
             {{res?.title}}
           </p>
-
-          <div class="chat-btns pos-{{i}}"  role="group"  aria-label="Basic example">
-            <button type="button"
-                    class="btn btn-primary"
-                    *ngFor="let quick of res.replies"
-                    (click)="sendText(quick);question.value = '';hideBtns(i);">{{quick}}</button>
-          </div>
         </div>
+      </div>
+
+      <div class="chat-btns pos-{{i}}"  role="group"  aria-label="Basic example">
+        <button type="button"
+                class="btn btn-primary"
+                *ngFor="let quick of res.replies"
+                (click)="sendText(quick);question.value = '';hideBtns(i);">{{quick}}</button>
       </div>
 
     </div>
