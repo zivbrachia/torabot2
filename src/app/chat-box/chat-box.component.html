@@ -87,6 +87,7 @@
             (click)="sendText(quick);question.value = '';">{{quick}}</button>
   </div>
 
+
   <div class="textInput">
     <input #question type="text" placeholder="הקלד כאן" (keyup.enter)="sendText(question.value);question.value = ''">
     <span class="sendIcon" (click)="sendText(question.value); question.value = ''">
