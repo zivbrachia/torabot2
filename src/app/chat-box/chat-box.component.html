@@ -1,5 +1,4 @@
 <section class="chat-con">
-
 <!--<pre dir="rtl">-->
   <!--{{chatList | json}}-->
 <!--</pre>-->
@@ -77,16 +76,16 @@
         </div>
       </div>
 
-      <div class="chat-btns pos-{{i}}"  role="group"  aria-label="Basic example">
-        <button type="button"
-                class="btn btn-primary"
-                *ngFor="let quick of res.replies"
-                (click)="sendText(quick);question.value = '';hideBtns(i);">{{quick}}</button>
-      </div>
+     </div>
 
-    </div>
+
   </div>
-
+  <div class="chat-btns"  [ngClass]="{hide:hideBtn}" role="group"  aria-label="Basic example">
+    <button type="button"
+            class="btn btn-primary"
+            *ngFor="let quick of replies"
+            (click)="sendText(quick);question.value = '';">{{quick}}</button>
+  </div>
 
   <div class="textInput">
     <input #question type="text" placeholder="הקלד כאן" (keyup.enter)="sendText(question.value);question.value = ''">

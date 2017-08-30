@@ -12,6 +12,8 @@ export class ChatBoxComponent implements OnInit {
     chatList = [];
     lastBg: string;
     user: any;
+    replies = [];
+    hideBtn:boolean = true;
 
     @Output() bg = new EventEmitter();
     @Output() setting = new EventEmitter();
@@ -33,6 +35,7 @@ export class ChatBoxComponent implements OnInit {
     }
 
     sendText(text) {
+        this.hideBtn = true;
         let massageObj = {
             msg: text,
             user: this.user['name'],
@@ -40,17 +43,23 @@ export class ChatBoxComponent implements OnInit {
         }
         this.chatList.push({type: 10, text: text});
 
-
         this.chatM.sendText(massageObj).subscribe(
             (data) => {
                 data.msg.map(item => {
                     this.chatList.push(item);
                 });
-                let elem = document.querySelector('.chat-btns:not(.hide)');
-                if (elem && elem.className) {
-                    elem.className += ' hide';
+
+                //replies
+                data.msg.forEach(item=>{
+                    if(item.replies){
+                      this.replies = item.replies;
+                    }
+                });
+
+                if(this.replies.length){
+                    this.hideBtn = false;
                 }
-                this.scrollToPos();
+
 
                 if (data.bg) {
                     if (this.lastBg !== data.bg) {
@@ -70,7 +79,11 @@ export class ChatBoxComponent implements OnInit {
                         perek :data.status.perek || null
                     })
                 }
+
+                this.scrollToPos();
+
             },
+
             (e) => console.log(e)
         );
     }
@@ -78,17 +91,14 @@ export class ChatBoxComponent implements OnInit {
 
     scrollToPos = () => {
         setTimeout(() => {
-            let last = <HTMLElement> document.querySelector('.list-loop:last-child');
+           // let last = <HTMLElement> document.querySelector('.list-loop:last-child');
             let main = <HTMLElement> document.querySelector('.server-res');
+                main.scrollTop = main.scrollHeight;
 
-            main.scrollTop = last.offsetTop;
-        }, 750);
+        }, 50);
 
     }
 
 
-    hideBtns = (e) => {
-        let elem = document.querySelector(`.pos-${e}`);
-        elem.className += ' hide';
-    }
+
 }
