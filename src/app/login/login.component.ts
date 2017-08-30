@@ -12,7 +12,7 @@ declare var Fingerprint2:any;
 })
 export class LoginComponent implements OnInit {
 
-  user:object ={
+  user:any ={
     name:'',
     pic:''
   };
